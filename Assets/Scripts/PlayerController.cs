@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
     public Animator playerAnimator;
     // Start is called before the first frame update
     void Start()
-    {
+    {                                                                                                                                                                                                                                                                                                                                                                                                                                                        
         
     }
 
@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            playerAnimator.Play("Jump_Player_AC");
+            playerAnimator.Play("JUMP_1_PLAYER");
         }
     }
 }

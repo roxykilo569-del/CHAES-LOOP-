@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -980700918, guid: d97cfa9349bda324e945935d94389225, type: 3}
-  m_Color: {r: 1, g: 0.21069163, b: 0.21069163, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -137,7 +137,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3543781292883182530}
-  - component: {fileID: 4080417394348851682}
+  - component: {fileID: 550220720897028688}
   m_Layer: 0
   m_Name: Player 1
   m_TagString: Untagged
@@ -161,7 +161,7 @@ Transform:
   - {fileID: 250997913049422553}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4080417394348851682
+--- !u!114 &550220720897028688
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
