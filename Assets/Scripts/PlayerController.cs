@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    // dingyi
+
     public Animator playerAnimator;
     // Start is called before the first frame update
     void Start()
@@ -14,9 +16,13 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Z))
         {
-            playerAnimator.Play("JUMP_1_PLAYER");
+            playerAnimator.SetTrigger("JumpTrigger");
+        }
+        else if (Input.GetKeyDown(KeyCode.X))
+        {
+            playerAnimator.SetTrigger("SlideTrigger");
         }
     }
 }
