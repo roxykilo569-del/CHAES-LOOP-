@@ -1,28 +1,118 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    // dingyi
+    [Header("跳跃")]
+    public float jumpForce = 14f;
 
-    public Animator playerAnimator;
-    // Start is called before the first frame update
+    [Header("滑铲")]
+    public float slideDuration = 0.5f;
+    private float slideTimer;
+
+    [Header("地面检测")]
+    public Transform groundCheck;
+    public float groundCheckRadius = 0.1f;
+    public LayerMask groundLayer;//= LayerMask.NameToLayer("Ground");
+
+    [SerializeField]
+    private Rigidbody2D rb;
+    [SerializeField]
+    private Animator anim;
+    [SerializeField]
+    private bool wasGrounded;
+
+    private bool isDead;
+    private Vector3 startPos;
+
     void Start()
-    {                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+    {
         
+        groundLayer = LayerMask.GetMask("Ground");
+        if (rb == null)
+            rb = GetComponentInChildren<Rigidbody2D>();
+        if(anim == null)
+            anim = this.GetComponentInChildren<Animator>();
+        startPos = transform.position;
+
+        // 一开始就播放跑步动画
+        if (anim != null)
+        {
+            anim.Play("Run");
+        }
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Z))
+        if (isDead) return;
+
+        bool currentlyGrounded = Physics2D.OverlapCircle(
+            groundCheck.position, groundCheckRadius, groundLayer);
+
+        // 刚落地 → 切回跑步
+        if (currentlyGrounded && !wasGrounded)
         {
-            playerAnimator.SetTrigger("JumpTrigger");
+            if (anim != null)
+            {
+                anim.Play("Run");
+            }
         }
-        else if (Input.GetKeyDown(KeyCode.X))
+
+        wasGrounded = currentlyGrounded;
+
+        // 滑铲冷却
+        if (slideTimer > 0)
+            slideTimer -= Time.deltaTime;
+
+        // 跳跃
+        if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
         {
-            playerAnimator.SetTrigger("SlideTrigger");
+            if (currentlyGrounded && slideTimer <= 0)
+            {
+                //rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+                if (anim != null) anim.Play("Jump");
+            }
+        }
+
+        // 滑铲
+        if (Input.GetKeyDown(KeyCode.LeftControl) || Input.GetKeyDown(KeyCode.S))
+        {
+            if (currentlyGrounded && slideTimer <= 0)
+            {
+                slideTimer = slideDuration;
+                if (anim != null) anim.Play("Slide");
+            }
+        }
+    }
+
+    public void Die()
+    {
+        if (isDead) return;
+        isDead = true;
+        Respawn();
+    }
+
+    void Respawn()
+    {
+        transform.position = startPos;
+        rb.velocity = Vector2.zero;
+        isDead = false;
+        slideTimer = 0;
+        wasGrounded = false;
+
+        // 复活直接跑步
+        if (anim != null)
+        {
+            anim.Rebind();
+            anim.Play("Run");
+        }
+    }
+
+    void OnDrawGizmosSelected()
+    {
+        if (groundCheck != null)
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
         }
     }
 }
