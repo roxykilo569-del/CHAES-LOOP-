@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField]
     private Animator anim;
+    [SerializeField]
     private bool wasGrounded;
 
     private bool isDead;
