@@ -13,7 +13,6 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField]
     private Animator anim;
-    [SerializeField]
     private bool wasGrounded;
 
     private bool isDead;
@@ -22,11 +21,11 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         groundLayer = LayerMask.GetMask("Ground");
-        if(anim == null)
+        if (anim == null)
             anim = this.GetComponentInChildren<Animator>();
         startPos = transform.position;
 
-        // 一开始就播放跑步动画
+        // 一开始播放跑步动画
         if (anim != null)
         {
             anim.Play("Run");
@@ -40,11 +39,22 @@ public class PlayerController : MonoBehaviour
         bool currentlyGrounded = Physics2D.OverlapCircle(
             groundCheck.position, groundCheckRadius, groundLayer);
 
-        // 刚落地 → 切回跑步
+        // 刚落地 → 强制把角色贴到地面高度，并切回跑步
         if (currentlyGrounded && !wasGrounded)
         {
-            // check ground height and then set up my height
-            this.transform.position = groundCheck.position;
+            // 获取当前碰到的所有地面碰撞体
+            Collider2D groundColl = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
+
+            if (groundColl != null)
+            {
+                // 直接取地面碰撞盒的**最顶部高度**
+                float groundTopY = groundColl.bounds.max.y;
+
+                Vector3 finalPos = transform.position;
+                finalPos.y = groundTopY;
+                transform.position = finalPos;
+            }
+
             if (anim != null)
             {
                 anim.Play("Run");
@@ -57,17 +67,16 @@ public class PlayerController : MonoBehaviour
         if (slideTimer > 0)
             slideTimer -= Time.deltaTime;
 
-        // 跳跃
+        // 跳跃（Z键）
         if (Input.GetKeyDown(KeyCode.Z))
         {
             if (currentlyGrounded && slideTimer <= 0)
             {
-                //rb.velocity = new Vector2(rb.velocity.x, jumpForce);
                 if (anim != null) anim.Play("Jump");
             }
         }
 
-        // 滑铲
+        // 滑铲（X键）
         if (Input.GetKeyDown(KeyCode.X))
         {
             if (currentlyGrounded && slideTimer <= 0)
@@ -88,12 +97,10 @@ public class PlayerController : MonoBehaviour
     void Respawn()
     {
         transform.position = startPos;
-        //rb.velocity = Vector2.zero;
         isDead = false;
         slideTimer = 0;
         wasGrounded = false;
 
-        // 复活直接跑步
         if (anim != null)
         {
             anim.Rebind();
