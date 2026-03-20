@@ -2,9 +2,6 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [Header("ÌøÔ¾")]
-    public float jumpForce = 14f;
-
     [Header("»¬²ù")]
     public float slideDuration = 0.5f;
     private float slideTimer;
@@ -12,10 +9,8 @@ public class PlayerController : MonoBehaviour
     [Header("µØÃæ¼ì²â")]
     public Transform groundCheck;
     public float groundCheckRadius = 0.1f;
-    public LayerMask groundLayer;//= LayerMask.NameToLayer("Ground");
+    public LayerMask groundLayer;
 
-    [SerializeField]
-    private Rigidbody2D rb;
     [SerializeField]
     private Animator anim;
     [SerializeField]
@@ -26,10 +21,7 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-        
         groundLayer = LayerMask.GetMask("Ground");
-        if (rb == null)
-            rb = GetComponentInChildren<Rigidbody2D>();
         if(anim == null)
             anim = this.GetComponentInChildren<Animator>();
         startPos = transform.position;
@@ -51,6 +43,8 @@ public class PlayerController : MonoBehaviour
         // ¸ÕÂäµØ ¡ú ÇÐ»ØÅÜ²½
         if (currentlyGrounded && !wasGrounded)
         {
+            // check ground height and then set up my height
+            this.transform.position = groundCheck.position;
             if (anim != null)
             {
                 anim.Play("Run");
@@ -64,7 +58,7 @@ public class PlayerController : MonoBehaviour
             slideTimer -= Time.deltaTime;
 
         // ÌøÔ¾
-        if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Z))
         {
             if (currentlyGrounded && slideTimer <= 0)
             {
@@ -74,7 +68,7 @@ public class PlayerController : MonoBehaviour
         }
 
         // »¬²ù
-        if (Input.GetKeyDown(KeyCode.LeftControl) || Input.GetKeyDown(KeyCode.S))
+        if (Input.GetKeyDown(KeyCode.X))
         {
             if (currentlyGrounded && slideTimer <= 0)
             {
@@ -94,7 +88,7 @@ public class PlayerController : MonoBehaviour
     void Respawn()
     {
         transform.position = startPos;
-        rb.velocity = Vector2.zero;
+        //rb.velocity = Vector2.zero;
         isDead = false;
         slideTimer = 0;
         wasGrounded = false;
