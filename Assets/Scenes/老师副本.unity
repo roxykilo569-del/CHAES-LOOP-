@@ -2404,7 +2404,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: b1bc1f03e8a0756458b4b3acb138b2c3, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 9ff4171a1145e6544a3a4f253f3f00e0, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -2859,6 +2859,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   anim: {fileID: 6975706022801031890}
+  wasGrounded: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

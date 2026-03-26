@@ -5,6 +5,7 @@ public class PlayerController : MonoBehaviour
     [Header("»¬²ù")]
     public float slideDuration = 0.5f;
     private float slideTimer;
+    private bool isSliding;
 
     [Header("µØÃæ¼ì²â")]
     public Transform groundCheck;
@@ -65,13 +66,22 @@ public class PlayerController : MonoBehaviour
         wasGrounded = currentlyGrounded;
 
         // »¬²ùÀäÈ´
-        if (slideTimer > 0)
-            slideTimer -= Time.deltaTime;
+        if (isSliding)
+        {     slideTimer -= Time.deltaTime;
+            if (!Input.GetKey(KeyCode.X) || slideTimer <= 0)
+            {
+                isSliding = false;
+                if (anim != null && !isSliding)
+                {
+                    anim.Play("Run");
+                }
+            }
+        }
 
         // ÌøÔ¾£¨Z¼ü£©
         if (Input.GetKeyDown(KeyCode.Z))
         {
-            if (currentlyGrounded && slideTimer <= 0)
+            if (currentlyGrounded && !isSliding)
             {
                 if (anim != null) anim.Play("Jump");
             }
@@ -80,8 +90,9 @@ public class PlayerController : MonoBehaviour
         // »¬²ù£¨X¼ü£©
         if (Input.GetKeyDown(KeyCode.X))
         {
-            if (currentlyGrounded && slideTimer <= 0)
+            if (currentlyGrounded && !isSliding)
             {
+                isSliding = true;
                 slideTimer = slideDuration;
                 if (anim != null) anim.Play("Slide");
             }
@@ -100,9 +111,10 @@ public class PlayerController : MonoBehaviour
         transform.position = startPos;
         isDead = false;
         slideTimer = 0;
+        isSliding = false;
         wasGrounded = false;
 
-        if (anim != null)
+        if (anim != null && !isSliding)
         {
             anim.Rebind();
             anim.Play("Run");
