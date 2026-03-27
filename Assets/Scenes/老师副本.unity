@@ -2780,7 +2780,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2687119393345868403}
-  - component: {fileID: 8171689039030740239}
+  - component: {fileID: 8171689039030740241}
+  - component: {fileID: 8171689039030740242}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -2840,7 +2841,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &8171689039030740239
+--- !u!114 &8171689039030740241
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2857,7 +2858,33 @@ MonoBehaviour:
   groundCheckRadius: 0.15
   groundLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
+  anim: {fileID: 6975706022801031890}
+  wasGrounded: 0
+  gravity: -9.8
+  verticleVelocity: 0
+  jumpVelocity: 9
+--- !u!114 &8171689039030740242
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5486777064707391847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2252e9b0ab24734e911fb69d5471d3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slideDuration: 0.5
+  jumpForce: 9
+  gravity: -28
+  maxFallSpeed: -20
+  groundCheck: {fileID: 5805926678946643994}
+  groundCheckRadius: 0.15
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 8
   anim: {fileID: 6975706022801031890}
   wasGrounded: 0
 --- !u!1660057539 &9223372036854775807
