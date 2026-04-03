@@ -43,11 +43,4 @@ public class Obstacle : MonoBehaviour // class 类
         if (GameManager.Instance != null)
             GameManager.Instance.OnPlayerHitObstacle();
     }
-
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.collider == null || !collision.collider.CompareTag("Player")) return;
-        if (GameManager.Instance != null)
-            GameManager.Instance.OnPlayerHitObstacle();
-    }
 }
