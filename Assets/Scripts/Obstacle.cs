@@ -36,4 +36,18 @@ public class Obstacle : MonoBehaviour // class 类
             Destroy(gameObject);
         }
     }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (!other.CompareTag("Player")) return;
+        if (GameManager.Instance != null)
+            GameManager.Instance.OnPlayerHitObstacle();
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.collider == null || !collision.collider.CompareTag("Player")) return;
+        if (GameManager.Instance != null)
+            GameManager.Instance.OnPlayerHitObstacle();
+    }
 }

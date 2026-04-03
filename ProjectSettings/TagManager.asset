@@ -8,6 +8,7 @@ TagManager:
   - LowObstacle
   - Ground
   - Test
+  - Obstacle
   layers:
   - Default
   - TransparentFX

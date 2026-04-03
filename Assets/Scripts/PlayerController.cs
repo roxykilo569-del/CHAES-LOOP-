@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
@@ -160,19 +160,37 @@ public class PlayerController : MonoBehaviour
         Respawn();
     }
 
-    void Respawn()
+    /// <summary>由 GameManager 在复活点重生时调用。</summary>
+    public void RespawnAt(Vector3 worldPosition)
     {
-        transform.position = startPos;
+        transform.position = worldPosition;
+        startPos = worldPosition;
         isDead = false;
         slideTimer = 0;
         isSliding = false;
         wasGrounded = false;
+        verticleVelocity = 0f;
 
         if (anim != null && !isSliding)
         {
             anim.Rebind();
             anim.Play("Run");
         }
+    }
+
+    public void SetSpawnPoint(Vector3 worldPosition)
+    {
+        startPos = worldPosition;
+    }
+
+    public Vector3 GetSpawnPoint()
+    {
+        return startPos;
+    }
+
+    void Respawn()
+    {
+        RespawnAt(startPos);
     }
 
     void OnDrawGizmosSelected()
