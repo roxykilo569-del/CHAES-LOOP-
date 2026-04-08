@@ -7,6 +7,7 @@ using UnityEngine;
 [RequireComponent(typeof(Collider2D))]
 public class DialogueSpriteClickTrigger : MonoBehaviour
 {
+    public int CurrentStage;
     [Tooltip("下标 = 阶段：Element 0 对应阶段 0，依此类推。某阶段不需要对话可留空。")]
     [SerializeField] private DialogueData[] dialogueByStage;
 
@@ -15,18 +16,7 @@ public class DialogueSpriteClickTrigger : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (skipIfDialogueAlreadyPlaying &&
-            DialogueUIController.Instance != null &&
-            DialogueUIController.Instance.IsPlaying)
-            return;
-
-        if (GameManager.Instance == null)
-        {
-            Debug.LogWarning("DialogueSpriteClickTrigger: 场景中没有 GameManager，无法按阶段取对话。", this);
-            return;
-        }
-
-        int stage = DialogueStageManager.Instance.CurrentStage;
+        int stage = CurrentStage;
         if (dialogueByStage == null || stage < 0 || stage >= dialogueByStage.Length)
         {
             Debug.LogWarning($"DialogueSpriteClickTrigger: 当前阶段 {stage} 超出 dialogueByStage 配置范围。", this);
