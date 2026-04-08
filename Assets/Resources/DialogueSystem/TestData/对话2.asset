@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27f8749596482864282d738d4e870adc, type: 3}
+  m_Name: "\u5BF9\u8BDD2"
+  m_EditorClassIdentifier: 
+  portraitLeft: {fileID: 21300000, guid: 3cd951b8a643bce4abd8a3b99abd4eae, type: 3}
+  portraitRight: {fileID: 21300000, guid: b936825bb77ed8c429d2e9d83f2b48ed, type: 3}
+  nameLeft: Player
+  nameRight: Chef
+  lines:
+  - speaker: 0
+    text: What!? Why you are still here are you wanna die?
+  - speaker: 1
+    text: "Whats up Man\t"
+  - speaker: 0
+    text: let see
+  typingSoundOverride: {fileID: 0}
