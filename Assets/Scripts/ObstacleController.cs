@@ -50,6 +50,9 @@ public class ObstacleController : MonoBehaviour
 
         while (true)
         {
+            yield return new WaitUntil(() =>
+                GameManager.Instance != null && GameManager.Instance.Phase == GamePhase.Playing);
+
             TrySpawnOne();
 
             float jitter = intervalJitter <= 0f ? 0f : Random.Range(-intervalJitter, intervalJitter);

@@ -103,6 +103,8 @@ public class DialogueUIController : MonoBehaviour, IPointerClickHandler
         if (rootPanel != null)
             rootPanel.SetActive(true);
 
+        DialogueRuntimeEvents.Raise(data.dialogueStartEventId, data, -1);
+
         ApplyLine();
     }
 
@@ -132,6 +134,8 @@ public class DialogueUIController : MonoBehaviour, IPointerClickHandler
     private void ApplyLine()
     {
         DialogueLine line = _data.lines[_index];
+        DialogueRuntimeEvents.Raise(line.lineBeginEventId, _data, _index);
+
         _lineComplete = false;
         _typeSoundEndTime = -999f;
 
@@ -151,6 +155,7 @@ public class DialogueUIController : MonoBehaviour, IPointerClickHandler
                 bodyText.text = line.text ?? string.Empty;
             _lineComplete = true;
             UpdateHintForComplete();
+            DialogueRuntimeEvents.Raise(line.lineCompleteEventId, _data, _index);
         }
     }
 
@@ -178,6 +183,8 @@ public class DialogueUIController : MonoBehaviour, IPointerClickHandler
         _lineComplete = true;
         _typewriterRoutine = null;
         UpdateHintForComplete();
+        if (_data != null && _index >= 0 && _index < _data.lines.Length)
+            DialogueRuntimeEvents.Raise(_data.lines[_index].lineCompleteEventId, _data, _index);
     }
 
     private bool ShouldPlaySoundForChar(char c)
@@ -228,6 +235,8 @@ public class DialogueUIController : MonoBehaviour, IPointerClickHandler
 
         _lineComplete = true;
         UpdateHintForComplete();
+        if (_data != null && _index >= 0 && _index < _data.lines.Length)
+            DialogueRuntimeEvents.Raise(_data.lines[_index].lineCompleteEventId, _data, _index);
     }
 
     private void StopTypewriter()
@@ -271,9 +280,12 @@ public class DialogueUIController : MonoBehaviour, IPointerClickHandler
     {
         StopTypewriter();
         _playing = false;
+        DialogueData ended = _data;
         _data = null;
         if (rootPanel != null)
             rootPanel.SetActive(false);
+        if (ended != null)
+            DialogueRuntimeEvents.Raise(ended.dialogueEndEventId, ended, -1);
         onDialogueEnded?.Invoke();
     }
 

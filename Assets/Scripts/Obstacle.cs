@@ -29,6 +29,9 @@ public class Obstacle : MonoBehaviour // class 类
     }
     void Update()
     {
+        if (GameManager.Instance == null || GameManager.Instance.Phase != GamePhase.Playing)
+            return;
+
         transform.Translate(Vector3.left * (moveSpeed * Time.deltaTime), Space.World);
 
         if (transform.position.x < destroyX)

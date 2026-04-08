@@ -19,8 +19,16 @@ MonoBehaviour:
   lines:
   - speaker: 0
     text: "\u4F60\u597D"
+    lineBeginEventId: 
+    lineCompleteEventId: 
   - speaker: 1
     text: "What is going on\t"
+    lineBeginEventId: 
+    lineCompleteEventId: 
   - speaker: 0
     text: I am trying to find out some meat
+    lineBeginEventId: 
+    lineCompleteEventId: 
+  dialogueStartEventId: 
+  dialogueEndEventId: Game_Start
   typingSoundOverride: {fileID: 0}

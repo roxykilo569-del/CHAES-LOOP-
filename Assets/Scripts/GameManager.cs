@@ -39,7 +39,11 @@ public class GameManager : MonoBehaviour
     [Tooltip("通常挂在 Main Camera 上的背景音乐 AudioSource。留空则自动从 Camera.main 上获取。")]
     public AudioSource bgm;
 
-    bool isShowingPopup;
+    [Header("游戏阶段")]
+    [SerializeField] private GamePhase phase = GamePhase.Preparation;
+
+    /// <summary>当前阶段（只读）。切换请用 SetPhase / SetGamePhase。</summary>
+    public GamePhase Phase => phase;
 
     [Header("状态（只读）")]
     [SerializeField] private bool inDanger;
@@ -58,6 +62,34 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
+    void OnEnable()
+    {
+        if (Instance == this)
+            DialogueRuntimeEvents.EventRaised += OnDialogueRuntimeEvent;
+    }
+
+    void OnDisable()
+    {
+        if (Instance == this)
+            DialogueRuntimeEvents.EventRaised -= OnDialogueRuntimeEvent;
+    }
+
+    /// <summary>
+    /// 在 DialogueData / 各句里填写 eventId，在此根据 id 写逻辑（不要用资源上绑 UnityEvent）。
+    /// </summary>
+    void OnDialogueRuntimeEvent(string eventId, DialogueData dialogue, int lineIndex)
+    {
+        switch (eventId)
+        {
+            // 示例：对话资源里 dialogueStartEventId 填 "Game_Start"
+            case "Game_Start":
+                SetPhase(GamePhase.Playing);
+                break;
+            default:
+                break;
+        }
+    }
+
     void Start()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
@@ -66,9 +98,22 @@ public class GameManager : MonoBehaviour
         BindRestartButton();
     }
 
+    /// <summary>
+    /// 切换游戏阶段（对外接口）。例：准备结束开始游玩 <c>SetPhase(GamePhase.Playing)</c>，打开暂停菜单 <c>SetPhase(GamePhase.Paused)</c>。
+    /// </summary>
+    public void SetPhase(GamePhase newPhase)
+    {
+        if (phase == newPhase) return;
+        phase = newPhase;
+        ApplyPhase(newPhase);
+    }
+
+    /// <summary>与 SetPhase 相同，便于在 Button 上绑定。</summary>
+    public void SetGamePhase(GamePhase newPhase) => SetPhase(newPhase);
+
     public void OnPlayerHitObstacle()
     {
-        if (isShowingPopup) return;
+        if (phase != GamePhase.Playing) return;
 
         if (!inDanger)
         {
@@ -78,7 +123,7 @@ public class GameManager : MonoBehaviour
         }
 
         inDanger = false;
-        ShowDeathPopupAndPause();
+        SetPhase(GamePhase.Dead);
     }
 
     /// <summary>
@@ -147,28 +192,70 @@ public class GameManager : MonoBehaviour
 
     void ResetStateForScene()
     {
-        isShowingPopup = false;
-
         // 复活点/出生点：保留你的旧逻辑作为备用
         if (player != null && respawnPoint != null)
             player.SetSpawnPoint(respawnPoint.position);
 
-        if (globalVolume != null)
-            globalVolume.weight = volumeDefaultWeight;
+        inDanger = false;
+        // 场景每次加载都要刷新 UI/时间缩放；若仅用 SetPhase(Preparation)，首次与上次同为 Preparation 时会早退
+        phase = GamePhase.Preparation;
+        ApplyPhase(GamePhase.Preparation);
+    }
 
-        if (popUpRoot != null)
-            popUpRoot.SetActive(false);
+    void ApplyPhase(GamePhase p)
+    {
+        switch (p)
+        {
+            case GamePhase.Preparation:
+                Time.timeScale = 1f;
+                if (globalVolume != null)
+                    globalVolume.weight = volumeDefaultWeight;
+                if (popUpRoot != null)
+                    popUpRoot.SetActive(false);
+                if (popUpText != null)
+                    popUpText.gameObject.SetActive(false);
+                if (player != null)
+                    player.enabled = true;
+                if (bgm != null)
+                    bgm.UnPause();
 
-        if (popUpText != null)
-            popUpText.gameObject.SetActive(false);
+                // trigger dialogue
+                DialogueStageManager.Instance.TriggerDialogue();
+                break;
 
-        Time.timeScale = 1f;
+            case GamePhase.Playing:
+                Time.timeScale = 1f;
+                if (player != null)
+                    player.enabled = true;
+                if (bgm != null)
+                    bgm.UnPause();
+                break;
 
-        if (player != null)
-            player.enabled = true;
+            case GamePhase.Paused:
+                Time.timeScale = 0f;
+                if (bgm != null)
+                    bgm.Pause();
+                break;
 
-        if (bgm != null)
-            bgm.UnPause();
+            case GamePhase.Dead:
+                if (player != null)
+                    player.enabled = false;
+                if (globalVolume != null)
+                    globalVolume.weight = volumeDefaultWeight;
+                Time.timeScale = 0f;
+                if (bgm != null)
+                    bgm.Pause();
+                if (popUpRoot != null)
+                    popUpRoot.SetActive(true);
+                if (popUpText != null)
+                {
+                    popUpText.gameObject.SetActive(true);
+                    popUpText.text = "死亡了\n点击按钮重新开始";
+                }
+                if (restartButton != null)
+                    restartButton.Select();
+                break;
+        }
     }
 
     void BindRestartButton()
@@ -184,37 +271,6 @@ public class GameManager : MonoBehaviour
     {
         if (globalVolume == null) return;
         globalVolume.weight = volumeActiveWeight;
-    }
-
-    void ShowDeathPopupAndPause()
-    {
-        isShowingPopup = true;
-
-        // 暂停角色更新，避免继续移动/跳跃
-        if (player != null)
-            player.enabled = false;
-
-        // 死亡后关闭危险特效（避免一直停在暂停画面）
-        if (globalVolume != null)
-            globalVolume.weight = volumeDefaultWeight;
-
-        Time.timeScale = 0f;
-
-        // 仅暂停 BGM；Time.timeScale 默认不会停音频
-        if (bgm != null)
-            bgm.Pause();
-
-        if (popUpRoot != null)
-            popUpRoot.SetActive(true);
-
-        if (popUpText != null)
-        {
-            popUpText.gameObject.SetActive(true);
-            popUpText.text = "死亡了\n点击按钮重新开始";
-        }
-
-        if (restartButton != null)
-            restartButton.Select();
     }
 
     void RestartLevel()
