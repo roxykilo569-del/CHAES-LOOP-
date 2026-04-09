@@ -45,13 +45,13 @@ public class DialogueStageManager : MonoBehaviour
             DialogueUIController.Instance.IsPlaying)
             return;
 
-        if (GameManager.Instance == null)
+        if (Instance == null)
         {
             Debug.LogWarning("DialogueSpriteClickTrigger: 场景中没有 GameManager，无法按阶段取对话。", this);
             return;
         }
 
-        int stage = DialogueStageManager.Instance.CurrentStage;
+        int stage = Instance.CurrentStage;
         if (dialogueByStage == null || stage < 0 || stage >= dialogueByStage.Length)
         {
             Debug.LogWarning($"DialogueSpriteClickTrigger: 当前阶段 {stage} 超出 dialogueByStage 配置范围。", this);

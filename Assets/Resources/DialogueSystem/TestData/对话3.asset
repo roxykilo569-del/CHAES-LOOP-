@@ -10,25 +10,25 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 27f8749596482864282d738d4e870adc, type: 3}
-  m_Name: "\u5BF9\u8BDD1"
+  m_Name: "\u5BF9\u8BDD3"
   m_EditorClassIdentifier: 
   portraitLeft: {fileID: 21300000, guid: b936825bb77ed8c429d2e9d83f2b48ed, type: 3}
-  portraitRight: {fileID: 21300000, guid: 3cd951b8a643bce4abd8a3b99abd4eae, type: 3}
+  portraitRight: {fileID: -371466877, guid: fd5f07a81225abd43b415cd8335b19cf, type: 3}
   nameLeft: Player
-  nameRight: Chef
+  nameRight: Chef_Chew
   lines:
   - speaker: 0
-    text: "\u4F60\u597D"
+    text: "\u4F60\u662F\u4EC0\u4E48"
     lineBeginEventId: 
     lineCompleteEventId: 
   - speaker: 1
-    text: "What is going on\t"
+    text: I am a chew
     lineBeginEventId: 
     lineCompleteEventId: 
   - speaker: 0
-    text: I am trying to find out some meat
+    text: wow Thats cool
     lineBeginEventId: 
     lineCompleteEventId: 
-  dialogueStartEventId: Game_Stop
+  dialogueStartEventId: 
   dialogueEndEventId: Game_Start
   typingSoundOverride: {fileID: 0}
