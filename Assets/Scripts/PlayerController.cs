@@ -27,7 +27,7 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-        groundLayer = LayerMask.GetMask("Ground");
+        //groundLayer = LayerMask.GetMask("Ground");
         if (anim == null)
             anim = this.GetComponentInChildren<Animator>();
         startPos = transform.position;

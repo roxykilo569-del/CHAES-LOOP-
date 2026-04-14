@@ -1,0 +1,149 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-4161352445561533238
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3049d7fe12ad3f248b06c5523cca638e, type: 3}
+  m_Name: DissolveVol
+  m_EditorClassIdentifier: 
+  active: 1
+  m_Weight:
+    m_OverrideState: 1
+    m_Value: 0
+  m_Color:
+    m_OverrideState: 1
+    m_Value:
+      _grad:
+        serializedVersion: 2
+        key0: {r: 0.8113208, g: 0.69235444, b: 0.43117356, a: 1}
+        key1: {r: 1, g: 0, b: 0.57254905, a: 1}
+        key2: {r: 1, g: 0, b: 0.57254905, a: 0}
+        key3: {r: 1, g: 0, b: 0.57254905, a: 0}
+        key4: {r: 1, g: 0, b: 0.57254905, a: 0}
+        key5: {r: 0, g: 0, b: 0, a: 0}
+        key6: {r: 0, g: 0, b: 0, a: 0}
+        key7: {r: 0, g: 0, b: 0, a: 0}
+        ctime0: 0
+        ctime1: 65535
+        ctime2: 65535
+        ctime3: 65535
+        ctime4: 65535
+        ctime5: 0
+        ctime6: 0
+        ctime7: 0
+        atime0: 0
+        atime1: 65535
+        atime2: 0
+        atime3: 0
+        atime4: 0
+        atime5: 0
+        atime6: 0
+        atime7: 0
+        m_Mode: 0
+        m_ColorSpace: 0
+        m_NumColorKeys: 2
+        m_NumAlphaKeys: 2
+      _pixels:
+      - {r: 0.8113208, g: 0.69235444, b: 0.43117356, a: 1}
+      - {r: 0.8174072, g: 0.6700204, b: 0.43573406, a: 1}
+      - {r: 0.82349366, g: 0.6476864, b: 0.44029456, a: 1}
+      - {r: 0.82958007, g: 0.6253524, b: 0.44485506, a: 1}
+      - {r: 0.8356665, g: 0.6030184, b: 0.44941556, a: 1}
+      - {r: 0.8417529, g: 0.58068436, b: 0.45397606, a: 1}
+      - {r: 0.84783936, g: 0.5583503, b: 0.45853657, a: 1}
+      - {r: 0.85392576, g: 0.53601635, b: 0.46309707, a: 1}
+      - {r: 0.8600122, g: 0.51368237, b: 0.46765757, a: 1}
+      - {r: 0.86609864, g: 0.49134833, b: 0.47221807, a: 1}
+      - {r: 0.87218505, g: 0.4690143, b: 0.47677857, a: 1}
+      - {r: 0.87827146, g: 0.4466803, b: 0.48133907, a: 1}
+      - {r: 0.8843579, g: 0.42434627, b: 0.48589957, a: 1}
+      - {r: 0.89044434, g: 0.40201226, b: 0.49046004, a: 1}
+      - {r: 0.89653075, g: 0.37967825, b: 0.49502057, a: 1}
+      - {r: 0.90261716, g: 0.35734424, b: 0.49958104, a: 1}
+      - {r: 0.9087036, g: 0.33501023, b: 0.50414157, a: 1}
+      - {r: 0.91479003, g: 0.3126762, b: 0.50870204, a: 1}
+      - {r: 0.92087644, g: 0.29034218, b: 0.51326257, a: 1}
+      - {r: 0.92696285, g: 0.26800817, b: 0.51782304, a: 1}
+      - {r: 0.9330493, g: 0.24567416, b: 0.5223836, a: 1}
+      - {r: 0.93913573, g: 0.22334012, b: 0.52694404, a: 1}
+      - {r: 0.94522214, g: 0.20100614, b: 0.5315046, a: 1}
+      - {r: 0.9513086, g: 0.17867213, b: 0.53606504, a: 1}
+      - {r: 0.957395, g: 0.1563381, b: 0.5406256, a: 1}
+      - {r: 0.9634814, g: 0.13400406, b: 0.54518604, a: 1}
+      - {r: 0.9695679, g: 0.11167008, b: 0.5497465, a: 1}
+      - {r: 0.9756543, g: 0.08933604, b: 0.55430704, a: 1}
+      - {r: 0.9817407, g: 0.06700206, b: 0.5588676, a: 1}
+      - {r: 0.9878272, g: 0.04466802, b: 0.56342804, a: 1}
+      - {r: 0.99391353, g: 0.02233404, b: 0.5679885, a: 1}
+      - {r: 1, g: 0, b: 0.57254905, a: 1}
+  m_Mask:
+    m_OverrideState: 1
+    m_Value: {r: 0, g: 0, b: 0, a: 0}
+    hdr: 0
+  m_Scale:
+    m_OverrideState: 1
+    m_Value: 1.05
+  m_Angle:
+    m_OverrideState: 1
+    m_Value: 0.23
+  m_Velocity:
+    m_OverrideState: 1
+    m_Value: {x: 0, y: 0, z: 0}
+  m_Shade:
+    m_OverrideState: 1
+    m_Value: 0
+  m_Disolve:
+    m_OverrideState: 1
+    m_Value: 1
+  m_Overlay:
+    m_OverrideState: 1
+    m_Value: {fileID: 0}
+  m_Custom:
+    m_OverrideState: 1
+    m_Value: {fileID: 0}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7fd9488000d3734a9e00ee676215985, type: 3}
+  m_Name: Aestetic_Minor_Dissolve
+  m_EditorClassIdentifier: 
+  components:
+  - {fileID: 5972565867808634423}
+  - {fileID: -4161352445561533238}
+--- !u!114 &5972565867808634423
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 310ff0a41f6a46cba06a0c6985ead2d5, type: 3}
+  m_Name: MaskVol
+  m_EditorClassIdentifier: 
+  active: 1
+  m_Weight:
+    m_OverrideState: 1
+    m_Value: 1
+  m_Mode:
+    m_OverrideState: 1
+    m_Value: 0
+  m_Inverse:
+    m_OverrideState: 1
+    m_Value: 0
+  m_Mask:
+    m_OverrideState: 0
+    m_Value: {fileID: 0}
