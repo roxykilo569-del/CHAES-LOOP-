@@ -5708,6 +5708,10 @@ PrefabInstance:
       propertyPath: restartButton
       value: 
       objectReference: {fileID: 293186805}
+    - target: {fileID: 8582857824139959617, guid: 6e2410236821add4388afee6fb4360c9, type: 3}
+      propertyPath: bossHitVfxPrefab
+      value: 
+      objectReference: {fileID: 8194992990867289339, guid: 99bc28c0d45f51c4fbac01080b73edc7, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

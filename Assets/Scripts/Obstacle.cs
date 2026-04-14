@@ -43,7 +43,11 @@ public class Obstacle : MonoBehaviour // class 类
     void OnTriggerEnter2D(Collider2D other)
     {
         if (!other.CompareTag("Player")) return;
-        if (GameManager.Instance != null)
+        if (GameManager.Instance == null) return;
+
+        if (GameManager.Instance.PlayPhase == GamePlayPhase.Boss)
+            GameManager.Instance.OnPlayerBossHitObstacle(this);
+        else
             GameManager.Instance.OnPlayerHitObstacle();
     }
 }

@@ -45,6 +45,16 @@ public class GameManager : MonoBehaviour
     /// <summary>当前阶段（只读）。切换请用 SetPhase / SetGamePhase。</summary>
     public GamePhase Phase => phase;
 
+    [Header("游玩子阶段（Playing 时）")]
+    [SerializeField] private GamePlayPhase gamePlayPhase = GamePlayPhase.Normal;
+
+    /// <summary>当前游玩子阶段（只读）。切换请用 <see cref="SetGamePlayPhase"/>。</summary>
+    public GamePlayPhase PlayPhase => gamePlayPhase;
+
+    [Header("Boss 模式 — 障碍当攻击")]
+    [Tooltip("玩家处于 Boss 子阶段时，撞到障碍在此位置生成（可选）。留空则仅销毁障碍。")]
+    public GameObject bossHitVfxPrefab;
+
     [Header("状态（只读）")]
     [SerializeField] private bool inDanger;
 
@@ -85,6 +95,12 @@ public class GameManager : MonoBehaviour
             case "Game_Start":
                 SetPhase(GamePhase.Playing);
                 break;
+            case "Boss_Start":
+                SetGamePlayPhase(GamePlayPhase.Boss);
+                break;
+            case "Boss_End":
+                SetGamePlayPhase(GamePlayPhase.Normal);
+                break;
             default:
                 break;
         }
@@ -111,9 +127,24 @@ public class GameManager : MonoBehaviour
     /// <summary>与 SetPhase 相同，便于在 Button 上绑定。</summary>
     public void SetGamePhase(GamePhase newPhase) => SetPhase(newPhase);
 
+    /// <summary>切换游玩子阶段（Normal / Boss）。</summary>
+    public void SetGamePlayPhase(GamePlayPhase newPlayPhase)
+    {
+        if (gamePlayPhase == newPlayPhase) return;
+        gamePlayPhase = newPlayPhase;
+
+        if (newPlayPhase == GamePlayPhase.Boss)
+        {
+            ClearDanger();
+            if (globalVolume != null)
+                globalVolume.weight = volumeDefaultWeight;
+        }
+    }
+
     public void OnPlayerHitObstacle()
     {
         if (phase != GamePhase.Playing) return;
+        if (gamePlayPhase != GamePlayPhase.Normal) return;
 
         if (!inDanger)
         {
@@ -124,6 +155,20 @@ public class GameManager : MonoBehaviour
 
         inDanger = false;
         SetPhase(GamePhase.Dead);
+    }
+
+    /// <summary>Boss 子阶段下玩家与障碍碰撞：不受伤，播放攻击表现并移除该障碍。</summary>
+    public void OnPlayerBossHitObstacle(Obstacle obstacle)
+    {
+        if (phase != GamePhase.Playing) return;
+        if (gamePlayPhase != GamePlayPhase.Boss) return;
+        if (obstacle == null) return;
+
+        Vector3 pos = obstacle.transform.position;
+        if (bossHitVfxPrefab != null)
+            Object.Instantiate(bossHitVfxPrefab, pos, Quaternion.identity);
+
+        Destroy(obstacle.gameObject);
     }
 
     /// <summary>
@@ -197,6 +242,7 @@ public class GameManager : MonoBehaviour
             player.SetSpawnPoint(respawnPoint.position);
 
         inDanger = false;
+        gamePlayPhase = GamePlayPhase.Normal;
         // 场景每次加载都要刷新 UI/时间缩放；若仅用 SetPhase(Preparation)，首次与上次同为 Preparation 时会早退
         phase = GamePhase.Preparation;
         ApplyPhase(GamePhase.Preparation);
