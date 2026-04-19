@@ -1605,9 +1605,7 @@ MonoBehaviour:
   - {fileID: -7555677241222522969}
   - {fileID: 7525473923257861058}
   - {fileID: -1480934173372097201}
-  - {fileID: 7302682899722223962}
-  - {fileID: 6518981655960822409}
-  m_RendererFeatureMap: a7976daf94d72497c203405aa9da6f684f5d6b3437aa72eb5a4143f1675758658922d5ec4613785a
+  m_RendererFeatureMap: a7976daf94d72497c203405aa9da6f684f5d6b3437aa72eb
   m_UseNativeRenderPass: 0
   postProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
   xrSystemData: {fileID: 11400000, guid: 60e1133243b97e347b653163a8c01b64, type: 2}
@@ -3573,20 +3571,6 @@ MonoBehaviour:
   _forceCount:
     enabled: 0
     value: 570
---- !u!114 &6518981655960822409
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d97da06d1b4e6e64e837fe2d4f512162, type: 3}
-  m_Name: DigitalGlitchFeature
-  m_EditorClassIdentifier: 
-  m_Active: 1
-  shader: {fileID: 4800000, guid: f543b3af2e0e5044caa979485a566d18, type: 3}
 --- !u!114 &6577034169241934895
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -3975,20 +3959,6 @@ MonoBehaviour:
   _flickerPeriod: 7
   _hdr: 1
   _bloomOnly: 0
---- !u!114 &7302682899722223962
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e65186ef1f25f74b9e6da90e3a9c15e, type: 3}
-  m_Name: AnalogGlitchFeature
-  m_EditorClassIdentifier: 
-  m_Active: 1
-  shader: {fileID: 4800000, guid: a8806b096c701424f865bdd5e4b76928, type: 3}
 --- !u!114 &7525473923257861058
 MonoBehaviour:
   m_ObjectHideFlags: 0

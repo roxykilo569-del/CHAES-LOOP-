@@ -6,8 +6,7 @@ using UnityEngine.Events;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 
-namespace VolFx
-{
+
     [AddComponentMenu("")]
     public class VolFx_SetUrpAsset : MonoBehaviour
     {
@@ -22,4 +21,4 @@ namespace VolFx
             _onStart.Invoke();
         }
     }
-}
+

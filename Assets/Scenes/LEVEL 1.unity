@@ -1447,7 +1447,7 @@ GameObject:
   m_Component:
   - component: {fileID: 587295631}
   m_Layer: 0
-  m_Name: ==================
+  m_Name: =========Volume==========
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4800,6 +4800,54 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!1 &1923108765
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1923108766}
+  - component: {fileID: 1923108767}
+  m_Layer: 0
+  m_Name: volFX_Setup
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1923108766
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1923108765}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.4005027, y: 4.369714, z: 2.4561672}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1923108767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1923108765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 154bf9ec09e07f44f962462054795aa4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _urp: {fileID: 11400000, guid: 6c1830095c9700b4483e7ac1b99dde4a, type: 2}
+  _onStart:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &1958793682
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6069,6 +6117,7 @@ SceneRoots:
   - {fileID: 1469469349856907697}
   - {fileID: 587295631}
   - {fileID: 1402884953}
+  - {fileID: 1923108766}
   - {fileID: 1439255926}
   - {fileID: 805887585}
   - {fileID: 479981401}
