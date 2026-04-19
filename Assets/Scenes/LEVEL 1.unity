@@ -305,7 +305,7 @@ GameObject:
   m_Component:
   - component: {fileID: 54972843}
   - component: {fileID: 54972842}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Global VolumeGlitch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -327,8 +327,8 @@ MonoBehaviour:
   m_IsGlobal: 1
   priority: 0
   blendDistance: 0
-  weight: 1
-  sharedProfile: {fileID: 11400000, guid: e76c50772cf3c2d4bab27a22eb97e973, type: 2}
+  weight: 0
+  sharedProfile: {fileID: 11400000, guid: 04b719e73cafec54a97890b75ba78dcf, type: 2}
 --- !u!4 &54972843
 Transform:
   m_ObjectHideFlags: 0
@@ -2260,7 +2260,7 @@ MonoBehaviour:
   m_IsGlobal: 1
   priority: 0
   blendDistance: 0
-  weight: 1
+  weight: 0
   sharedProfile: {fileID: 11400000, guid: 09624cedef11846449f600c5c45284e6, type: 2}
 --- !u!4 &792004633
 Transform:
