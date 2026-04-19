@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "com.mao-test-h.urp-glitch": "https://github.com/mao-test-h/URPGlitch.git?path=Assets/URPGlitch",
     "com.unity.cinemachine": "3.1.6",
     "com.unity.collab-proxy": "2.11.3",
     "com.unity.feature.2d": "2.0.1",

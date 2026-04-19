@@ -75,7 +75,7 @@ public class DialogueUIController : MonoBehaviour, IPointerClickHandler
     /// <summary>开始一段对话（可从其他脚本调用）</summary>
     public void StartDialogue(DialogueData data)
     {
-        if (data == null || data.lines == null || data.lines.Length == 0)
+        if (rootPanel == null || data == null || data.lines == null || data.lines.Length == 0)
         {
             Debug.LogWarning("DialogueUIController: 对话数据为空。");
             return;

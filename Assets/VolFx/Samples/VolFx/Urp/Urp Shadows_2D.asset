@@ -499,6 +499,9 @@ MonoBehaviour:
   - {fileID: 4402921922530051674}
   m_RendererFeatureMap: 5a062f2e29521a3d
   m_UseNativeRenderPass: 0
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
   m_TransparencySortMode: 0
   m_TransparencySortAxis: {x: 0, y: 1, z: 0}
   m_HDREmulationScale: 1
@@ -896,7 +899,7 @@ MonoBehaviour:
     - {fileID: 8136809060951887187}
     - {fileID: 5751908815294258515}
     - {fileID: 6224388432119938236}
-    - {fileID: -8519829960866941013}
+    - {fileID: 0}
     - {fileID: -6718439891295309787}
     - {fileID: -4489833879492871121}
     - {fileID: -3497589594812239238}

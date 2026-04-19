@@ -71,6 +71,7 @@ public class DialogueStageManager : MonoBehaviour
             return;
         }
 
+        
         DialogueUIController.Instance.StartDialogue(data);
     }
     /// <summary>将阶段设为指定值（例如剧情推进时调用）。</summary>
