@@ -997,10 +997,10 @@ MonoBehaviour:
   volume: {fileID: 2011611891}
   scanlineJitter: 0.2
   verticalJump: 1
-  horizontalShake: 0.01
+  horizontalShake: 1.66
   colorDrift: 0.2
-  digitalIntensity: 0.01
-  glitchTime: 1
+  digitalIntensity: 0.4
+  glitchTime: 2
 --- !u!114 &1243699916
 MonoBehaviour:
   m_ObjectHideFlags: 0

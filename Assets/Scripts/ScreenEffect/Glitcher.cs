@@ -4,6 +4,7 @@ using UnityEngine;
 using Easings;
 using URPGlitch;
 using UnityEngine.Rendering;
+using NaughtyAttributes;
 
 public class Glitcher : MonoBehaviour
 {
@@ -24,10 +25,13 @@ public class Glitcher : MonoBehaviour
         volume.profile.TryGet<URPGlitch.Runtime.AnalogGlitch.AnalogGlitchVolume>(out glitchAnalog);
         volume.profile.TryGet<URPGlitch.Runtime.DigitalGlitch.DigitalGlitchVolume>(out glitchDigital);
     }
+
+    [Button]
     public void GlitchIn()
     {
         StartCoroutine(Glitching(true));
     }
+    [Button]
     public void GlitchOut()
     {
         StartCoroutine(Glitching(false));
