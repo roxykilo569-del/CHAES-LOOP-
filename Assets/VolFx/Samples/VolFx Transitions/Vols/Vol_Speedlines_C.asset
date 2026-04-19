@@ -123,7 +123,7 @@ MonoBehaviour:
     m_Value: 1
   _Intensity:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: -0.538
   _Radial:
     m_OverrideState: 1
     m_Value: 0.29
@@ -157,7 +157,7 @@ MonoBehaviour:
   active: 1
   m_Intencity:
     m_OverrideState: 1
-    m_Value: 2.9
+    m_Value: 0.49
   m_Threshold:
     m_OverrideState: 1
     m_Value:
