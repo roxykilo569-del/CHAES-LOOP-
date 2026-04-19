@@ -15,7 +15,6 @@ MonoBehaviour:
   m_Template:
     Weight: 1
   m_Volume: {fileID: 11400000, guid: b66b72a6adcf24a47b33d886a70e6e94, type: 2}
-  _name: Cold
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -47,7 +46,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cd3925730e7a59446932e9c8cba28ccf, type: 3}
-  m_Name: Snow and Cold
+  m_Name: w and Coldold
   m_EditorClassIdentifier: 
   m_Version: 3
   m_AnimClip: {fileID: 0}

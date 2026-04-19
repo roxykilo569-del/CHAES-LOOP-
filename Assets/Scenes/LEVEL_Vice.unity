@@ -1421,7 +1421,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 569016715}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a91e4c2b8f3d4059a7e6d1c0b5f8a2e4, type: 3}
   m_Name: 
@@ -3269,7 +3269,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1060176450}
   - component: {fileID: 1060176449}
-  m_Layer: 2
+  m_Layer: 6
   m_Name: Global Volume_Ignore
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3506,7 +3506,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Halo Press <color = "red"> Z <\color> to Jump Press X to Slide see you
+  m_text: Halo Press  Z to Jump Press X to Slide see you
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4485,7 +4485,7 @@ MonoBehaviour:
   priority: 0
   blendDistance: 0
   weight: 1
-  sharedProfile: {fileID: 11400000, guid: 09624cedef11846449f600c5c45284e6, type: 2}
+  sharedProfile: {fileID: 11400000, guid: 629cba6b06f71a543b2a1e9f63c7fb6b, type: 2}
 --- !u!4 &1572813477
 Transform:
   m_ObjectHideFlags: 0
@@ -4516,7 +4516,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1578774750
 Transform:
   m_ObjectHideFlags: 0
@@ -5124,6 +5124,10 @@ PrefabInstance:
     - target: {fileID: 1618636891218366064, guid: 78ee8feaf860db14f9c6a86caad61fbb, type: 3}
       propertyPath: m_Name
       value: DialoguePanel
+      objectReference: {fileID: 0}
+    - target: {fileID: 1618636891218366064, guid: 78ee8feaf860db14f9c6a86caad61fbb, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2913691920626826334, guid: 78ee8feaf860db14f9c6a86caad61fbb, type: 3}
       propertyPath: m_fontSize
@@ -6010,15 +6014,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 197291642329418890, guid: d19e4bf48662bc142b3e466f94391811, type: 3}
       propertyPath: m_Layer
-      value: 1
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 918741403156602937, guid: d19e4bf48662bc142b3e466f94391811, type: 3}
       propertyPath: m_Layer
-      value: 1
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1572079408592247164, guid: d19e4bf48662bc142b3e466f94391811, type: 3}
       propertyPath: m_Layer
-      value: 1
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3543781292883182530, guid: d19e4bf48662bc142b3e466f94391811, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6066,11 +6070,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6359197285069263062, guid: d19e4bf48662bc142b3e466f94391811, type: 3}
       propertyPath: m_Layer
-      value: 1
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6568595765009827541, guid: d19e4bf48662bc142b3e466f94391811, type: 3}
       propertyPath: m_Layer
-      value: 1
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7278715798068851902, guid: d19e4bf48662bc142b3e466f94391811, type: 3}
       propertyPath: groundLayer.m_Bits
