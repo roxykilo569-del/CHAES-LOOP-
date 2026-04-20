@@ -40,7 +40,7 @@ public class GameManager : MonoBehaviour
     public AudioSource bgm;
 
     [Header("游戏阶段")]
-    [SerializeField] private GamePhase phase = GamePhase.Preparation;
+    [SerializeField] private GamePhase phase = GamePhase.None;
 
     /// <summary>当前阶段（只读）。切换请用 SetPhase / SetGamePhase。</summary>
     public GamePhase Phase => phase;
@@ -110,7 +110,7 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
         AcquireReferences();
-        ResetStateForScene();
+        //ResetStateForScene();
         BindRestartButton();
     }
 
@@ -122,6 +122,13 @@ public class GameManager : MonoBehaviour
         if (phase == newPhase) return;
         phase = newPhase;
         ApplyPhase(newPhase);
+    }
+
+    public void SetPrepareState()
+    {
+        if(phase == GamePhase.Preparation) return;
+        phase = GamePhase.Preparation;
+        ApplyPhase(phase);
     }
 
     /// <summary>与 SetPhase 相同，便于在 Button 上绑定。</summary>
