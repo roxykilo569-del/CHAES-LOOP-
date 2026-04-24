@@ -22,6 +22,6 @@ public class IntroSequenceController : MonoBehaviour
 
         // 3. 时间到了！在这里触发你的对话系统
         Debug.Log("特效结束，开始播放对话！");
-        GameManager.Instance.SetPrepareState();
+        //GameManager.Instance.SetPrepareState();
     }
 }

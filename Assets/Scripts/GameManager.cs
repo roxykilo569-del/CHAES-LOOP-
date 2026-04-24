@@ -189,7 +189,7 @@ public class GameManager : MonoBehaviour
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         AcquireReferences();
-        ResetStateForScene();
+        //ResetStateForScene();
         BindRestartButton();
     }
 
