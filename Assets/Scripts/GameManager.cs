@@ -113,7 +113,6 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
         AcquireReferences();
-        //ResetStateForScene();
         BindRestartButton();
         StartCoroutine(BeginRountine());
     }
