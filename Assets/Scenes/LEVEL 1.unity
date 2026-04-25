@@ -6287,7 +6287,7 @@ PrefabInstance:
     - target: {fileID: 4586444344379091161, guid: 6e2410236821add4388afee6fb4360c9, type: 3}
       propertyPath: dialogueByStage.Array.data[0]
       value: 
-      objectReference: {fileID: 11400000, guid: 7c05224a8d555f84d9093959386f0244, type: 2}
+      objectReference: {fileID: 11400000, guid: 4c83c8627eb9ec245a4633b1c045e314, type: 2}
     - target: {fileID: 6543197707307825612, guid: 6e2410236821add4388afee6fb4360c9, type: 3}
       propertyPath: m_Name
       value: GameManger
