@@ -288,12 +288,17 @@ public class GameManager : MonoBehaviour
                     player.enabled = true;
                 if (bgm != null)
                     bgm.UnPause();
+
+                //播放音乐
+                AudioController.Instance.SetLoopAndPlay("QiLuo150dm60s");
                 break;
 
             case GamePhase.Paused:
                 Time.timeScale = 0f;
                 if (bgm != null)
                     bgm.Pause();
+
+                AudioController.Instance.SetLoopPaused(true);
                 break;
 
             case GamePhase.Dead:
