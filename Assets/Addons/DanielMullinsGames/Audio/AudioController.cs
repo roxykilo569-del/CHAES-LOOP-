@@ -169,7 +169,9 @@ public class AudioController : MonoBehaviour
     {
         if (!string.IsNullOrEmpty(soundId))
         {
+            
             AudioClip sound = GetAudioClip(soundId);
+            //AudioClip sound = GetLoopClip(soundId);
 
             if (sound != null)
             {

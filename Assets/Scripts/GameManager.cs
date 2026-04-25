@@ -3,6 +3,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.Rendering;
 using TMPro;
+using System.Collections;
 
 /// <summary>
 /// 障碍触碰：第一次进入危险状态，第二次触碰则死亡并在复活点重生。
@@ -70,6 +71,8 @@ public class GameManager : MonoBehaviour
 
         Instance = this;
         DontDestroyOnLoad(gameObject);
+
+        AudioController.Instance.StopAllLoops();
     }
 
     void OnEnable()
@@ -112,8 +115,14 @@ public class GameManager : MonoBehaviour
         AcquireReferences();
         //ResetStateForScene();
         BindRestartButton();
+        StartCoroutine(BeginRountine());
     }
+    private IEnumerator BeginRountine()
+    {
+        yield return new WaitForSeconds(2.0f);
+        ResetStateForScene();
 
+    }
     /// <summary>
     /// 切换游戏阶段（对外接口）。例：准备结束开始游玩 <c>SetPhase(GamePhase.Playing)</c>，打开暂停菜单 <c>SetPhase(GamePhase.Paused)</c>。
     /// </summary>
@@ -177,7 +186,6 @@ public class GameManager : MonoBehaviour
 
         Destroy(obstacle.gameObject);
     }
-
     /// <summary>
     /// 需要时可在别处重置危险状态（例如过关、读档）。
     /// </summary>
@@ -185,7 +193,6 @@ public class GameManager : MonoBehaviour
     {
         inDanger = false;
     }
-
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         AcquireReferences();

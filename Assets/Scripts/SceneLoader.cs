@@ -11,11 +11,6 @@ public class SceneLoader : MonoBehaviour
 
     public void LoadScene(int sceneID)
     {
-        /*
-        Debug.Log("issue");
-        if (loadingScreenInEvent != null)
-            loadingScreenInEvent.Raise();
-        SceneManager.LoadScene(scenes[sceneID]);*/
         LoadSceneAsync(sceneID);
     }
 
