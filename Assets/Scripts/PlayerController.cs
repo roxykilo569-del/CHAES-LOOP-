@@ -27,7 +27,6 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-        //groundLayer = LayerMask.GetMask("Ground");
         if (anim == null)
             anim = this.GetComponentInChildren<Animator>();
         startPos = transform.position;
@@ -46,7 +45,6 @@ public class PlayerController : MonoBehaviour
         // 检测是否在地上
         bool currentlyGrounded = CheckIfGrounded();
 
-        // currentlyGrounded = true; wasGrounded = true
         // 刚落地 → 强制把角色贴到地面高度，并切回跑步        -> 落地
         if (currentlyGrounded && !wasGrounded)
         {
