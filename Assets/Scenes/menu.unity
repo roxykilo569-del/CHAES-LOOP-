@@ -457,7 +457,7 @@ MonoBehaviour:
   m_BlockingObjects: 0
   m_BlockingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 127
 --- !u!114 &880090425
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2173,8 +2173,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07ada821169e1ca42b6af8449505e0a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clips:
-  - {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
