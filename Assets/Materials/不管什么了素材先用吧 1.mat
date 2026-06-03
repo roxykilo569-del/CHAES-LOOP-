@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: "\u4E0D\u7BA1\u4EC0\u4E48\u4E86\u7D20\u6750\u5148\u7528\u5427"
+  m_Name: "\u4E0D\u7BA1\u4EC0\u4E48\u4E86\u7D20\u6750\u5148\u7528\u5427 1"
   m_Shader: {fileID: 10750, guid: 0000000000000000f000000000000000, type: 0}
   m_Parent: {fileID: 2100000, guid: c22b251e1cdb6214d8635c2ad15cbe27, type: 2}
   m_ModifiedSerializedProperties: 0
@@ -25,7 +25,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: adea2217754e0884c93a34cd5b1d9b6a, type: 3}
+        m_Texture: {fileID: 2800000, guid: 8f5da81df53d4e64f9d2cd6ee60d87f2, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
