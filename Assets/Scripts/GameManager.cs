@@ -197,6 +197,7 @@ public class GameManager : MonoBehaviour
         AcquireReferences();
         //ResetStateForScene();
         BindRestartButton();
+        StartCoroutine(BeginRountine());
     }
 
     void AcquireReferences()
@@ -212,7 +213,7 @@ public class GameManager : MonoBehaviour
 
         if (popUpRoot == null)
         {
-            popUpRoot = GameObject.Find("PopUp");
+            popUpRoot = GameObject.Find("Canvas").transform.Find("PopUp").gameObject;
         }
 
         // GameManager 可能 DontDestroyOnLoad：重载场景后旧引用会失效，每次重新抓主摄像机上的音源
@@ -314,7 +315,7 @@ public class GameManager : MonoBehaviour
                 if (popUpText != null)
                 {
                     popUpText.gameObject.SetActive(true);
-                    popUpText.text = "死亡了\n点击按钮重新开始";
+                    popUpText.text = "死亡了\n按下Space重新尝试";
                 }
                 if (restartButton != null)
                     restartButton.Select();
@@ -340,6 +341,9 @@ public class GameManager : MonoBehaviour
     void RestartLevel()
     {
         Time.timeScale = 1f;
+
+        // 从对话之后的节点重新开始游戏~
+
 
         // 重新加载当前场景（关卡内障碍生成器也会一并重置）
         Scene scene = SceneManager.GetActiveScene();
