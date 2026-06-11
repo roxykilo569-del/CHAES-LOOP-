@@ -4015,7 +4015,7 @@ MonoBehaviour:
     enabled: 1
     value:
       serializedVersion: 2
-      m_Bits: 2
+      m_Bits: 130
   _output:
     _output: 0
     _renderTex: {fileID: 0}

@@ -157,7 +157,7 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 4, y: 3799}
     spritePosition: {x: 0, y: 0}
-  - name: "\u56FE\u5C42 7"
+  - name: Background1
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0

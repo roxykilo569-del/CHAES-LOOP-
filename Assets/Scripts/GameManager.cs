@@ -344,6 +344,7 @@ public class GameManager : MonoBehaviour
         // 重新加载当前场景（关卡内障碍生成器也会一并重置）
         Scene scene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(scene.buildIndex);
+        SetGamePhase(GamePhase.Preparation);
     }
 
     void OnDestroy()
