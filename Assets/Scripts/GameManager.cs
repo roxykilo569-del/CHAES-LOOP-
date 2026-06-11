@@ -290,7 +290,7 @@ public class GameManager : MonoBehaviour
                     bgm.UnPause();
 
                 //播放音乐
-                AudioController.Instance.SetLoopAndPlay("QiLuo150dm120s");
+                AudioController.Instance.SetLoopAndPlay("1柒落BPM150demo低音完成无混音");
                 break;
 
             case GamePhase.Paused:
