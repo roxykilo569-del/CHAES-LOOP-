@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 805958347630132963}
   - component: {fileID: 6392210860882327302}
-  - component: {fileID: 7863561756579821216}
+  - component: {fileID: 1763697599288762913}
   m_Layer: 0
   m_Name: Obstacle_ground 1
   m_TagString: Obstacle
@@ -87,7 +87,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7863561756579821216
+--- !u!114 &1763697599288762913
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -96,10 +96,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 1316044145753168909}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3abe40236e610964aa9660705c90f89f, type: 3}
+  m_Script: {fileID: 11500000, guid: b31a713678fddf54682e94df41ef45bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 8
+  isInSafeZone: 0
+  isAfterSafeZone: 0
+  isHit: 0
+  targetPoint: {x: 0, y: 0}
+  safeZone: {fileID: 2121688573702167423}
+  dangerousZone: {fileID: 6630910887859354576}
+  moveSpeed: 5
   destroyX: -20
 --- !u!1 &2071301899665332633
 GameObject:
