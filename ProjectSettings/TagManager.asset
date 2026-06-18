@@ -46,6 +46,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: New Layer 1
+  - name: Background
     uniqueID: 1489173091
+    locked: 0
+  - name: ScanlineEffect
+    uniqueID: 736850551
+    locked: 0
+  - name: Player
+    uniqueID: 1954809011
+    locked: 0
+  - name: GameUI
+    uniqueID: 315535467
     locked: 0
