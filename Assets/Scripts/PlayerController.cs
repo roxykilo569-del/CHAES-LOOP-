@@ -54,6 +54,10 @@ public class PlayerController : MonoBehaviour
             {
                 anim.Play("Run");
             }
+            if (CameraDirector2D.Instance != null)
+            {
+                CameraDirector2D.Instance.EndJumpCamera();
+            }
         }
 
         // 滑铲冷却
@@ -67,6 +71,10 @@ public class PlayerController : MonoBehaviour
                 {
                     anim.Play("Run");
                 }
+                if (CameraDirector2D.Instance != null)
+                {
+                    CameraDirector2D.Instance.EndSlideCamera();
+                }
             }
         }
 
@@ -79,6 +87,10 @@ public class PlayerController : MonoBehaviour
                 verticleVelocity = jumpVelocity;
                 if (anim != null) anim.Play("Jump");
             }
+            if (CameraDirector2D.Instance != null)
+            {
+                CameraDirector2D.Instance.JumpCamera();
+            }
         }
 
         // 滑铲（X键）
@@ -90,6 +102,11 @@ public class PlayerController : MonoBehaviour
                 slideTimer = slideDuration;
                 if (anim != null) anim.Play("Slide");
             }
+            if (CameraDirector2D.Instance != null)
+            {
+                CameraDirector2D.Instance.SlideCamera();
+            }
+
         }
 
         // Calculate verticleVelocity value

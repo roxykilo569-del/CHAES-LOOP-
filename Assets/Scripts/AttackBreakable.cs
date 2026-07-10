@@ -11,6 +11,10 @@ public class AttackBreakable : MonoBehaviour
         if (isBroken) return;
 
         isBroken = true;
+        if (CameraDirector2D.Instance != null)
+        {
+            CameraDirector2D.Instance.HitImpact();
+        }
 
         if (ScanlineEffectController.Instance != null)
         {
